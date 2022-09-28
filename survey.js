@@ -14,6 +14,13 @@ const surveyResponses = {
   superpower: ""
 };
 
+const askQuestion = (question, category, nextFunction, givenObject) => {
+  rl.question(question, answer => {
+    givenObject[category] = answer;
+    nextFunction();
+  })
+};
+
 const runSurvey = (surveyResponses) => {
   askName(surveyResponses);
 };
